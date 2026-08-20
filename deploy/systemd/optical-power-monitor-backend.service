@@ -1,0 +1,28 @@
+[Unit]
+Description=Optical Power Monitor FastAPI backend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=opticalmon
+Group=opticalmon
+WorkingDirectory=/opt/optical-power-monitor/backend
+EnvironmentFile=/opt/optical-power-monitor/backend/.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStartPre=/opt/optical-power-monitor/.venv/bin/alembic -c /opt/optical-power-monitor/backend/alembic.ini upgrade head
+ExecStart=/opt/optical-power-monitor/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 2 --proxy-headers --forwarded-allow-ips=127.0.0.1
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+KillSignal=SIGINT
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+
+[Install]
+WantedBy=multi-user.target

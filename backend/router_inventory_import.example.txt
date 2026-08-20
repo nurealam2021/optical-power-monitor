@@ -1,0 +1,2 @@
+Device ID\tHostname\tIP Address\tHardware\tOS\tVersion
+R001\tedge-router-01\t192.0.2.10\tExample Hardware\tCisco IOS-XR\tExample Version

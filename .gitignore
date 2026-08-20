@@ -1,0 +1,64 @@
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment / secret files
+.env
+.env.*
+!.env.example
+!backend/.env.example
+!frontend/.env.local.example
+
+# SQLite development databases and journals
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.sqlite-journal
+
+# Local router inventory/import data
+backend/router_inventory_import.txt
+backend/router_inventory_skipped.txt
+
+# Frontend dependencies / builds
+*.tsbuildinfo
+node_modules/
+.next/
+dist/
+build/
+
+# Logs and runtime files
+*.log
+logs/
+*.pid
+
+# Coverage
+coverage/
+.coverage
+htmlcov/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary / backup files
+*.tmp
+*.temp
+*.bak
+*~
