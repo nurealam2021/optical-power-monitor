@@ -15,6 +15,7 @@ from app.database import get_db
 from app.inventory.routes import router as router_inventory_router
 from app.optical.log_routes import router as optical_logs_router
 from app.optical.routes import router as optical_router
+from app.topology.routes import router as topology_router
 from app.routers.routes import router as router_credentials_router
 from app.users.routes import router as users_router
 
@@ -52,6 +53,7 @@ app.include_router(router_inventory_router, prefix=settings.API_PREFIX)
 app.include_router(optical_router, prefix=settings.API_PREFIX)
 app.include_router(optical_logs_router, prefix=settings.API_PREFIX)
 app.include_router(capacity_router, prefix=settings.API_PREFIX)
+app.include_router(topology_router, prefix=settings.API_PREFIX)
 
 
 @app.get("/")
