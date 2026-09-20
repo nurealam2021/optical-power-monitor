@@ -112,6 +112,7 @@ def discover_topology(
 
     while queue:
         router, current_depth = queue.pop(0)
+        last_error = None
 
         if router.id in visited or current_depth >= depth:
             continue
